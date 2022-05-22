@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Req, Res, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { createCustomerDto } from 'src/customers/dto/create-customer.dto';
+import { CreateCustomerDto } from 'src/customers/dto/create-customer.dto';
 import { CustomersService } from 'src/customers/services/customers/customers.service';
 
 @Controller('customers')
@@ -59,9 +59,9 @@ export class CustomersController {
 
     @Post()
     @UsePipes(ValidationPipe)
-    createCustomer(@Body() createCustomerDto: createCustomerDto) {
+    createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
         const createCustomer = this.customerService.createCustomer(createCustomerDto);
-        if (createCustomer) return 'Customer is created';
+        if (createCustomer) return createCustomer;
         else throw new HttpException('Customer not created please try again later', HttpStatus.CONFLICT);
     }
 }
