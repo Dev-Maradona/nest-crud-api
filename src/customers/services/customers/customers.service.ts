@@ -12,24 +12,6 @@ export class CustomersService {
         private customerRepository: Repository<Customer>
     ) { }
 
-    // customers = [
-    //     {
-    //         id: 1,
-    //         name: 'mohamed',
-    //         email: 'Mohamed@email.com',
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'ahmed',
-    //         email: 'Ahmed@email.com',
-    //     },
-    //     {
-    //         id: 3,
-    //         named: 'sayed',
-    //         email: 'Sayed@email.com',
-    //     },
-    // ]
-
     findCustomers() {
         return this.customerRepository.find();
     }

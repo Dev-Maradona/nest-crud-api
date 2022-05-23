@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CustomerModule } from './customers/custmoer.model';
 import { Customer, Project } from './typeorm';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { Customer, Project } from './typeorm';
       // autoLoadEntities: true, // will auto load all entities in project
     }),
     CustomerModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],
